@@ -12,9 +12,8 @@ const createProduct = async (
 
 const listProducts = async (): Promise<Product[]> => {
   const products = await ProductModel.findAll();
-  const productList: Product[] = products.map((product: ProductSequelizeModel) => {
-    return product.toJSON() as Product;
-  });  
+  const productList: Product[] = products
+    .map((product: ProductSequelizeModel) => product.toJSON() as Product);
   return productList;
 };
 
