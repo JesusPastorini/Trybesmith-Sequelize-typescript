@@ -1,15 +1,9 @@
-import { Product } from '../../src/types/Product';
+const createProductMock = {
+  "name": "Martelo de Thor",
+  "price": "30 peças de ouro",
+  "orderId": 4
+}
 
-export const createProductMock = async (
-  name: string,
-  price: string,
-  orderId: number
-): Promise<Product> => {
-  const product: Product = {
-    id: 1,
-    name,
-    price,
-    orderId,
-  };
-  return product;
+export default {
+  createProductMock,
 };

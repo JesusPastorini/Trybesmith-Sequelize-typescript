@@ -1,5 +1,5 @@
-import express, { Request, Response } from 'express';
-import { createProductController } from './controller/productController';
+import express from 'express';
+import createProductController from './controller/productController';
 
 const app = express();
 

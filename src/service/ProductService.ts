@@ -1,11 +1,13 @@
 import ProductModel from '../database/models/product.model';
 import { Product } from '../types/Product';
 
-export const createProduct = async (
+const createProduct = async (
   name: string,
   price: string,
-  orderId: number
+  orderId: number,
 ): Promise<Product> => {
-    const product = await ProductModel.create({ name, price, orderId });
-    return product.toJSON() as Product;
+  const product = await ProductModel.create({ name, price, orderId });
+  return product.toJSON() as Product;
 };
+
+export default createProduct;
