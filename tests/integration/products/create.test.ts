@@ -6,7 +6,7 @@ import createProductMock from '../../mocks/productServiceMock';
 
 chai.use(chaiHttp);
 
-describe('POST /products', function () { 
+describe('/products', function () { 
   beforeEach(function () { sinon.restore(); });
  
   it('Deve criar um produto com sucesso', async () => {
@@ -22,5 +22,12 @@ describe('POST /products', function () {
 
     expect(res.status).to.equal(201);
     expect(res.body).to.have.keys('id', 'name', 'price');
+  });
+
+  it('Deve listar produtos com sucesso', async () => {
+    const listProductsResponse = await chai.request(app).get('/products');
+
+    expect(listProductsResponse.status).to.equal(200);
+    expect(listProductsResponse.body).to.be.an('array');
   });
 });

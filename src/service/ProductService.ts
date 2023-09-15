@@ -1,4 +1,4 @@
-import ProductModel from '../database/models/product.model';
+import ProductModel, { ProductSequelizeModel } from '../database/models/product.model';
 import { Product } from '../types/Product';
 
 const createProduct = async (
@@ -10,4 +10,15 @@ const createProduct = async (
   return product.toJSON() as Product;
 };
 
-export default createProduct;
+const listProducts = async (): Promise<Product[]> => {
+  const products = await ProductModel.findAll();
+  const productList: Product[] = products.map((product: ProductSequelizeModel) => {
+    return product.toJSON() as Product;
+  });  
+  return productList;
+};
+
+export default {
+  createProduct,
+  listProducts,
+};
