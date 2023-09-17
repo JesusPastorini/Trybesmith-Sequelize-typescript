@@ -30,4 +30,18 @@ describe('/products', function () {
     expect(listProductsResponse.status).to.equal(200);
     expect(listProductsResponse.body).to.be.an('array');
   });
+
+  it('Deve retornar um erro 400 se os dados do produto não estiverem corretos', async () => {
+    const res = await chai.request(app)
+      .post('/products')
+      .send({
+        name: '',
+        price: '10.00',
+        orderId: 4,
+      });
+
+    expect(res.status).to.equal(422);
+    expect(res.body).to.have.property('message');
+    expect(res.body.message).to.equal('"name" is not allowed to be empty');
+  });
 });
