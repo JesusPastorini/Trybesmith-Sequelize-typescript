@@ -44,7 +44,7 @@ O projeto Trybesmith consiste no desenvolvimento de uma API para uma loja de ite
 
 ## 🪑 Tabelas do Banco de Dados
 
-![Trybesmith](public/login.gif)
+![Trybesmith](src/diagram-der.png)
 
 ## ℹ️ Habilidades Demonstradas
 
